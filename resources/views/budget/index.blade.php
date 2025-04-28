@@ -41,7 +41,10 @@ Budget
                             <td>{{ $budget->month }}</td>
                             <td>{{ $budget->amount }}</td>
                             <td>
+                                @if (auth()->user()->role == 'user')
                                 <a href="{{ route('budget.edit', $budget->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                @endif
+
                                 <a href="{{ route('budget.delete',$budget->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure delete this? ')"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>

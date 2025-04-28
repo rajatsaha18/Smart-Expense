@@ -33,8 +33,8 @@
           <!--begin::Small Box Widget 1-->
           <div class="small-box text-bg-primary">
             <div class="inner">
-              <h3>150</h3>
-              <p>New Orders</p>
+              <h3>{{ $totalCategory ?? ''}}</h3>
+              <p>Total Category</p>
             </div>
             <svg
               class="small-box-icon"
@@ -61,8 +61,8 @@
           <!--begin::Small Box Widget 2-->
           <div class="small-box text-bg-success">
             <div class="inner">
-              <h3>53<sup class="fs-5">%</sup></h3>
-              <p>Bounce Rate</p>
+              <h3>{{ $totalExpense ?? ''}}</h3>
+              <p>Total Expense</p>
             </div>
             <svg
               class="small-box-icon"
@@ -89,8 +89,8 @@
           <!--begin::Small Box Widget 3-->
           <div class="small-box text-bg-warning">
             <div class="inner">
-              <h3>44</h3>
-              <p>User Registrations</p>
+              <h3>{{ $totalIncome ?? '' }}</h3>
+              <p>Total Income</p>
             </div>
             <svg
               class="small-box-icon"
@@ -117,8 +117,8 @@
           <!--begin::Small Box Widget 4-->
           <div class="small-box text-bg-danger">
             <div class="inner">
-              <h3>65</h3>
-              <p>Unique Visitors</p>
+              <h3>{{ $maxBudget->category->name ?? 'N/A'}}, {{ $maxBudget->amount ?? ''}}</h3>
+              <p>Maximum Budget</p>
             </div>
             <svg
               class="small-box-icon"

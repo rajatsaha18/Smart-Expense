@@ -58,14 +58,16 @@
             </p>
           </a>
         </li>
+        @if (auth()->user()->role == 'admin')
         <li class="nav-item">
-          <a href="{{ route('user.list') }}" class="nav-link">
-            <i class="fa-solid fa-file-invoice"></i>
-            <p>
-                User List
-            </p>
-          </a>
-        </li>
+            <a href="{{ route('user.list') }}" class="nav-link">
+              <i class="fa-solid fa-file-invoice"></i>
+              <p>
+                  User List
+              </p>
+            </a>
+          </li>
+        @endif
         <li class="nav-item">
           <a href="{{ route('profile.edit') }}" class="nav-link">
             <i class="fa-solid fa-user"></i>

@@ -5,155 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<style>
-    /* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    background: #f5f5f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    text-align: center;
-}
-
-/* Heading Styles */
-.heading {
-    margin-top: 20px!important;
-    margin-bottom: 1px;
-}
-
-.heading h1 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.heading p {
-    font-size: 18px;
-    color: #777;
-}
-
-/* Login Container */
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-/* Login Box */
-.login-box {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 300px;
-}
-
-/* Title */
-h2 {
-    color: #4c4c6c;
-    margin-bottom: 20px;
-}
-
-/* Textbox Styles */
-.textbox {
-    margin: 20px 0;
-    position: relative;
-}
-
-.textbox input {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-.textbox input:focus {
-    border-color: #4caf50;
-}
-
-/* Button Styles */
-.btn {
-    width: 100%;
-    padding: 15px;
-    background-color: #4caf50;
-    border: none;
-    color: white;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-bottom: 10px!important;
-}
-/* Register Link Styling */
-.register-link {
-    color: #4caf50;
-    text-decoration: none;
-    font-weight: bold;
-
-}
-
-.btn:hover {
-    background-color: #45a049;
-}
-.text_message
-{
-    color: red!important;
-}
-
-</style>
-<body>
-
-    <div class="heading">
-        <h2>Welcome to Our Smart Expense Tracker Platform</h2>
-        <p>Login to your account to continue</p>
-    </div>
-    @if ($errors->any())
-            <div class="text_message">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+<body class="bg-light">
+    <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
+            <div class="mt-3">
+                @if ($errors->any())
+                    <div class="text_message alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
-    @endif
-
-    <div class="login-container">
-        <div class="login-box">
-            <h2>Login</h2>
-            <form action="{{ route('login') }}" method="POST">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">Login</h2>
+                <p class="text-muted small">Login to your account</p>
+            </div>
+            <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <div class="textbox">
-                    <input type="email" placeholder="Username" name="email" required>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
                 </div>
-                <div class="textbox">
-                    <input type="password" placeholder="Password" name="password" required>
-                </div>
-                <input type="submit" class="btn" value="Login">
-            </form>
-            <p>Don't have an account? <a href="{{ route('register') }}" class="register-link">Register here</a></p>
-        </div>
 
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Enter password" required>
+                </div>
+
+                <div class="d-grid mb-3">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+
+                <div class="text-center">
+                    <a href="{{ route('register') }}" class="small">Don't have an account? Register</a>
+                </div>
+
+                <div class="text-center mt-3">
+                    <a href="{{ route('auth.google') }}" class="btn btn-success"><img src="{{ asset('/assets/img/google.png') }}" alt="" style="height:
+                    20px;width:20px;"> Login with Google</a>
+                </div>
+            </form>
+        </div>
     </div>
 
 </body>
 </html>
+
+
+
 {{-- <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
