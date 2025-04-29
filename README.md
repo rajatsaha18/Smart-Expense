@@ -55,6 +55,12 @@ It includes role-based access, Google social login, automatic budget notificatio
 ![image](https://github.com/user-attachments/assets/d96dff91-67e1-4a40-9e5f-d4019f484c13)
 ![image](https://github.com/user-attachments/assets/c9cd09d6-66b8-43be-bc5c-7e736fe947a5)
 ![image](https://github.com/user-attachments/assets/7b281b91-82ac-4120-a0cd-5a5ac6ed5644)
+![image](https://github.com/user-attachments/assets/9dd77fb9-c951-44be-94cf-2c8e03acac61)
+![image](https://github.com/user-attachments/assets/4e546539-d11d-4f99-b419-022b10772b10)
+![image](https://github.com/user-attachments/assets/f3a2aba5-66ba-4abb-99e4-0cb4c6d301de)
+
+
+
 
 
 
